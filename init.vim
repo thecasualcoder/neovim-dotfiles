@@ -281,7 +281,7 @@ noremap <F3> :NERDTreeToggle<CR>
 
 function! OpenNerdTree()
     if &modifiable && strlen(expand('%')) > 0 && !&diff
-        NERDTreeToggle
+        NERDTreeFind
     else
         NERDTreeToggle
     endif
