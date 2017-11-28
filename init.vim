@@ -47,6 +47,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdcommenter'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -69,7 +70,7 @@ endif
 
 if v:version >= 704
   "" Snippets
-  Plug 'SirVer/ultisnips'
+  " Plug 'SirVer/ultisnips'
 endif
 
 Plug 'honza/vim-snippets'
@@ -83,6 +84,7 @@ Plug 'tomasr/molokai'
 
 Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
 
 
 " c
@@ -163,6 +165,7 @@ set smartcase
 "" Directories for swp files
 set nobackup
 set noswapfile
+set relativenumber
 
 set fileformats=unix,dos,mac
 
@@ -190,10 +193,11 @@ if !exists('g:not_finish_vimplug')
   colorscheme railscasts
 endif
 
+colorscheme codedark
+
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -209,10 +213,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
 endif
-
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
