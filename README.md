@@ -10,3 +10,9 @@ My neovim configurations
 - `git clone https://github.com/aswinkarthik93/neovim-dotfiles.git ~/.config/nvim`
 - Open `nvim`
 - To install all plugs `:PlugInstall`
+
+## Auto Formatting
+
+neovim is configured with neoformat plugin, to enable formatting for javascript:
+
+ - npm install -g prettier
