@@ -48,6 +48,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Valloric/YouCompleteMe'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -70,7 +71,7 @@ endif
 
 if v:version >= 704
   "" Snippets
-  " Plug 'SirVer/ultisnips'
+  Plug 'SirVer/ultisnips'
 endif
 
 Plug 'honza/vim-snippets'
@@ -85,7 +86,6 @@ Plug 'tomasr/molokai'
 Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'tomasiser/vim-code-dark'
-
 
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
