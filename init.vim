@@ -48,6 +48,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Valloric/YouCompleteMe'
+Plug 'sbdchd/neoformat'
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -70,7 +73,7 @@ endif
 
 if v:version >= 704
   "" Snippets
-  " Plug 'SirVer/ultisnips'
+  Plug 'SirVer/ultisnips'
 endif
 
 Plug 'honza/vim-snippets'
@@ -85,7 +88,6 @@ Plug 'tomasr/molokai'
 Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'tomasiser/vim-code-dark'
-
 
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
@@ -445,9 +447,9 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+" if has('unnamedplus')
+"  set clipboard=unnamed,unnamedplus
+" endif
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -574,7 +576,7 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
 
@@ -657,3 +659,11 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+"*****************************************************************************
+"" Format on save using Neoformat
+"*****************************************************************************
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
