@@ -50,6 +50,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 Plug 'valloric/youcompleteme'
 Plug 'sbdchd/neoformat'
+Plug 'flowtype/vim-flow'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -670,3 +671,9 @@ augroup END
 
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 let g:neoformat_try_formatprg = 1
+
+"*****************************************************************************
+"" Configure Flow
+"*****************************************************************************
+let g:flow#enable = 1
+let g:flow#autoclose = 1

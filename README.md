@@ -16,3 +16,13 @@ My neovim configurations
 neovim is configured with neoformat plugin, to enable formatting for javascript:
 
  - npm install -g prettier
+
+## Addons
+
+### Javascript
+
+To enable flow run:
+
+```
+- npm install -g flow-bin
+```
