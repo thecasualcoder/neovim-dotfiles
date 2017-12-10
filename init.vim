@@ -48,7 +48,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Valloric/YouCompleteMe'
+Plug 'valloric/youcompleteme'
 Plug 'sbdchd/neoformat'
 
 if isdirectory('/usr/local/opt/fzf')
