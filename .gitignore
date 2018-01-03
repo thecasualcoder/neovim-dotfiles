@@ -21,3 +21,5 @@ plugged
 
 # vim-plug
 autoload/plug.vim
+spell/
+
