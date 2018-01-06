@@ -52,6 +52,7 @@ Plug 'valloric/youcompleteme'
 Plug 'sbdchd/neoformat'
 Plug 'flowtype/vim-flow'
 Plug 'ervandew/supertab'
+Plug 'schickling/vim-bufonly'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
