@@ -84,11 +84,14 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 
+" Multi Cursor
+Plug 'terryma/vim-multiple-cursors'
+
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
 
-Plug 'skwp/YankRing.vim'
+" Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'tomasiser/vim-code-dark'
 
@@ -395,10 +398,11 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 
+
 "" yankring
-let g:yankring_history_file = '.yankring-history'
-nnoremap ,yr :YRShow<CR>
-nnoremap C-y :YRShow<CR>
+" let g:yankring_history_file = '.yankring-history'
+" nnoremap ,yr :YRShow<CR>
+" nnoremap C-y :YRShow<CR>
 
 "" fzf.vim
 set wildmode=list:longest,list:full
