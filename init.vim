@@ -398,6 +398,15 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 
+"" nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
 "" yankring
 " let g:yankring_history_file = '.yankring-history'
