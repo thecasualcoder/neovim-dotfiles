@@ -398,6 +398,10 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 
+"" vim-multipe-cursor
+nnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
+
 "" nerdcommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
