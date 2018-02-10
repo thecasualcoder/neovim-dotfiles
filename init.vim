@@ -583,7 +583,8 @@ augroup go
   au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
   au FileType go nmap <leader>r  <Plug>(go-run)
-  "au FileType go nmap <leader>t  <Plug>(go-test)
+  au FileType go nmap <leader>t  <Plug>(go-test)
+  au FileType go nmap <leader>gb  <Plug>(go-build)
   au FileType go nmap <Leader>gt <Plug>(go-coverage-toggle)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
