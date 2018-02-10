@@ -407,6 +407,20 @@ nnoremap <silent> ss <C-w>s
 nnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  set foldmethod=manual
+  call deoplete#disable()
+  call youcompleteme#DisableCursorMovedAutocommands()
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  call youcompleteme#EnableCursorMovedAutocommands()
+  call deoplete#enable()
+  set foldmethod=syntax
+endfunction
+
 "" nerdcommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
