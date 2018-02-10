@@ -53,6 +53,8 @@ Plug 'sbdchd/neoformat'
 Plug 'flowtype/vim-flow'
 Plug 'ervandew/supertab'
 Plug 'schickling/vim-bufonly'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -90,6 +92,9 @@ Plug 'terryma/vim-multiple-cursors'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
+
+" Plug 'deoplete'
+let g:deoplete#enable_at_startup = 1
 
 " Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
