@@ -53,6 +53,8 @@ Plug 'sbdchd/neoformat'
 Plug 'flowtype/vim-flow'
 Plug 'ervandew/supertab'
 Plug 'schickling/vim-bufonly'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -90,6 +92,9 @@ Plug 'terryma/vim-multiple-cursors'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
+
+" Plug 'deoplete'
+let g:deoplete#enable_at_startup = 1
 
 " Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
@@ -402,6 +407,20 @@ nnoremap <silent> ss <C-w>s
 nnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  set foldmethod=manual
+  call deoplete#disable()
+  call youcompleteme#DisableCursorMovedAutocommands()
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  call youcompleteme#EnableCursorMovedAutocommands()
+  call deoplete#enable()
+  set foldmethod=syntax
+endfunction
+
 "" nerdcommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -578,7 +597,8 @@ augroup go
   au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
   au FileType go nmap <leader>r  <Plug>(go-run)
-  "au FileType go nmap <leader>t  <Plug>(go-test)
+  au FileType go nmap <leader>t  <Plug>(go-test)
+  au FileType go nmap <leader>gb  <Plug>(go-build)
   au FileType go nmap <Leader>gt <Plug>(go-coverage-toggle)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
