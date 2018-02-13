@@ -409,7 +409,6 @@ vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
-  set foldmethod=manual
   call deoplete#disable()
   call youcompleteme#DisableCursorMovedAutocommands()
 endfunction
@@ -418,7 +417,6 @@ endfunction
 function! Multiple_cursors_after()
   call youcompleteme#EnableCursorMovedAutocommands()
   call deoplete#enable()
-  set foldmethod=syntax
 endfunction
 
 "" nerdcommenter
