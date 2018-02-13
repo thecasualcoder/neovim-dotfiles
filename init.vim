@@ -152,6 +152,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
+set autowrite
 
 
 "" Fix backspace indent
@@ -601,6 +602,7 @@ augroup go
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
   au FileType go nmap <C-g> :GoDecls<cr>
+  au FileType go nmap <C-a> :GoAlternate<cr>
   au FileType go nmap <leader>dr :GoDeclsDir<cr>
   au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
   au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
