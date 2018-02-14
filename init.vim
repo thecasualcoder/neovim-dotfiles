@@ -152,6 +152,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
+set autowrite
 
 
 "" Fix backspace indent
@@ -409,7 +410,6 @@ vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
-  set foldmethod=manual
   call deoplete#disable()
   call youcompleteme#DisableCursorMovedAutocommands()
 endfunction
@@ -418,7 +418,6 @@ endfunction
 function! Multiple_cursors_after()
   call youcompleteme#EnableCursorMovedAutocommands()
   call deoplete#enable()
-  set foldmethod=syntax
 endfunction
 
 "" nerdcommenter
@@ -596,13 +595,14 @@ augroup go
   au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
   au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
-  au FileType go nmap <leader>r  <Plug>(go-run)
-  au FileType go nmap <leader>t  <Plug>(go-test)
-  au FileType go nmap <leader>gb  <Plug>(go-build)
-  au FileType go nmap <Leader>gt <Plug>(go-coverage-toggle)
+  au FileType go nmap <leader>r  <Plug>(go-test)
+  au FileType go nmap <leader>R  <Plug>(go-test-func)
+  au FileType go nmap <leader>rb  <Plug>(go-build)
+  au FileType go nmap <Leader>rc <Plug>(go-coverage-toggle)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
   au FileType go nmap <C-g> :GoDecls<cr>
+  au FileType go nmap <C-a> :GoAlternate<cr>
   au FileType go nmap <leader>dr :GoDeclsDir<cr>
   au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
   au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
