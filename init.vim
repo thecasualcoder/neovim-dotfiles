@@ -55,6 +55,7 @@ Plug 'ervandew/supertab'
 Plug 'schickling/vim-bufonly'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -95,6 +96,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Plug 'deoplete'
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 
 " Plug 'skwp/YankRing.vim'
 Plug 'flazz/vim-colorschemes'
