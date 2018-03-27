@@ -23,3 +23,7 @@ plugged
 autoload/plug.vim
 spell/
 
+
+# gocode
+autoload
+ftplugin
