@@ -717,8 +717,12 @@ endif
 "*****************************************************************************
 augroup fmt
   autocmd!
-  autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+  autocmd BufWritePre * undojoin | Neoformat
 augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+" augroup END
 
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 let g:neoformat_try_formatprg = 1
