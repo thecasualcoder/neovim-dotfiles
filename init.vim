@@ -631,6 +631,9 @@ augroup vimrc-javascript
   autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
+if executable("jq")
+  command SortJson %!jq -S '.'
+endif
 
 " python
 " vim-python
