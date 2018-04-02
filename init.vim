@@ -213,7 +213,7 @@ if !exists('g:not_finish_vimplug')
   colorscheme railscasts
 endif
 
-colorscheme hybrid
+colorscheme solarized
 set background=dark
 
 set mousemodel=popup
