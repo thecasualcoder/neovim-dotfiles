@@ -58,6 +58,7 @@ Plug 'zchee/deoplete-go'
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'iCyMind/NeoSolarized'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -213,7 +214,7 @@ if !exists('g:not_finish_vimplug')
   colorscheme railscasts
 endif
 
-colorscheme solarized
+colorscheme NeoSolarized
 set background=dark
 
 set mousemodel=popup
