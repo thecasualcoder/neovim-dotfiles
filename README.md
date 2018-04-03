@@ -25,11 +25,14 @@ npm install -g prettier
 
 ### Javascript
 
-To enable flow run:
+1. To enable flow run:
 
 ```sh
 npm install -g flow-bin
 ```
+
+2. Install [`jq`](https://github.com/stedolan/jq) to use `:SortJson` (sorts all keys of a JSON file).
+
 ### Python Installation and Linking
 
 In case on opening neovim/vimr it shows error that python3 is unavailable.
