@@ -21,7 +21,7 @@ The following packages need to be installed
 mkdir -p ~/.config/
 
 ## Clone the repository to ~/.config/nvim
-git clone https://github.com/aswinkarthik93/neovim-dotfiles.git ~/.config/nvim
+git clone --depth 1 https://github.com/aswinkarthik93/neovim-dotfiles.git ~/.config/nvim
 
 ## Open nvim
 nvim
