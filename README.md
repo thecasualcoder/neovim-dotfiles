@@ -37,8 +37,18 @@ nvim
 
 ## The Looks!
 
+**Neovim**
+
 ![demo](/demo/nvim.gif)
 
+**Vimr**
+
+![demo](/demo/vimr.gif)
+
+The above `Vimr` is customized. It has,
+
+- Hybrid colorscheme
+- [Fira code](https://github.com/tonsky/FiraCode) font with Font ligatures enabled
 
 ## Keymaps
 
