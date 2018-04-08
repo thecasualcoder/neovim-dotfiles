@@ -35,7 +35,7 @@ nvim
 
 3. Post installation if there are issues, use `:CheckHealth`. Neovim will do a health check and report on what is missing and how to fix it.
 
-## The Looks
+## The Looks!
 
 ![demo](/demo/nvim.gif)
 
@@ -44,28 +44,28 @@ nvim
 
 Frequently used keymaps,
 
-| Name             | Value                          |
-|:-----------------|:-------------------------------|
-| <leader>         | ,                              |
-| , + e            | Files fuzzy finder             |
-| , + b            | Buffer fuzzy finder            |
-| <ctrl> + /       | Opens NERDTree                 |
-| vv               | Split Window vertically        |
-| ss               | Split Window horizontally      |
-| <ctrl> + j,k,h,l | Navigation across split panels |
-| , + z            | Move to Previous buffer        |
-| , + x            | Move to Next buffer            |
-| <ctrl> + 6       | Toggle between buffers         |
+| Name               | Value                          |
+|:-------------------|:-------------------------------|
+| \<leader\>         | ,                              |
+| , + e              | Files fuzzy finder             |
+| , + b              | Buffer fuzzy finder            |
+| \<ctrl\> + /       | Opens NERDTree                 |
+| vv                 | Split Window vertically        |
+| ss                 | Split Window horizontally      |
+| \<ctrl\> + j,k,h,l | Navigation across split panels |
+| , + z              | Move to Previous buffer        |
+| , + x              | Move to Next buffer            |
+| \<ctrl\> + 6       | Toggle between buffers         |
 
 **Golang specific Keymaps**
 
-| Name            | Value                               |
-|:----------------|:------------------------------------|
-| , + r           | Run all tests                       |
-| , + <shift> + r | Run specific test                   |
-| <ctrl> + a      | Switch between test and source code |
-| <ctrl> + ]      | Goto definition                     |
-| <ctrl> + t      | Pop stack when going to definition  |
+| Name              | Value                               |
+|:------------------|:------------------------------------|
+| , + r             | Run all tests                       |
+| , + \<shift\> + r | Run specific test                   |
+| \<ctrl\> + a      | Switch between test and source code |
+| \<ctrl\> + ]      | Goto definition                     |
+| \<ctrl\> + t      | Pop stack when going to definition  |
 
 ## Features
 
