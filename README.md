@@ -37,7 +37,7 @@ nvim
 
 ## The Looks
 
-![demo](/demo/nvim.git)
+![demo](/demo/nvim.gif)
 
 
 ## Keymaps
