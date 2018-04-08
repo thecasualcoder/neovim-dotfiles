@@ -741,3 +741,11 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+
+"*****************************************************************************
+"" Respect custom configuration
+"*****************************************************************************
+if filereadable(expand("~/.config/nvim/custom.vim"))
+    source ~/.config/nvim/custom.vim
+endif

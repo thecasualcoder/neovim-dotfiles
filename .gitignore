@@ -27,3 +27,4 @@ spell/
 # gocode
 autoload
 ftplugin
+custom.vim
