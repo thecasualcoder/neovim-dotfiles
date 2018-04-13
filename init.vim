@@ -20,7 +20,6 @@ if !filereadable(vimplug_exists)
   echo "Installing Vim-Plug..."
   echo ""
   silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
 endif
@@ -210,11 +209,8 @@ set ruler
 set number
 
 let no_buffers_menu=1
-if !exists('g:not_finish_vimplug')
-  colorscheme railscasts
-endif
 
-colorscheme NeoSolarized
+silent! colorscheme NeoSolarized
 set background=dark
 
 set mousemodel=popup
