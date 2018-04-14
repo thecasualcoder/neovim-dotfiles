@@ -93,6 +93,10 @@ Plug 'tomasr/molokai'
 " Multi Cursor
 Plug 'terryma/vim-multiple-cursors'
 
+" vial-http - REST tool
+Plug 'baverman/vial'
+Plug 'baverman/vial-http'
+
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
