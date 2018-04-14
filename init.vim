@@ -107,7 +107,6 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 set completeopt+=noselect
 
 " Plug 'skwp/YankRing.vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'tomasiser/vim-code-dark'
 
 " c
