@@ -14,7 +14,8 @@ RUN add-apt-repository ppa:neovim-ppa/stable \
   python-pip \
   python3-dev \
   python3-pip \
-  cmake
+  cmake \
+&& rm -rf /var/lib/apt/lists/*
 RUN pip install neovim
 RUN pip3 install neovim
 RUN nvim +PlugInstall +qall
