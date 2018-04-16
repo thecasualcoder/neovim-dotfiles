@@ -27,4 +27,7 @@ spell/
 # gocode
 autoload
 ftplugin
+
+# custom configs
 custom.vim
+local_bundles.vim
