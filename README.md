@@ -132,3 +132,12 @@ In case on opening neovim/vimr it shows error that python3 is unavailable.
   ```
   
 Reopen neovim/vimr and run ```:PlugUpdate```  
+
+## Try it out with Docker
+
+We have a Docker image which you use to try out this neovim config without affecting your existing setup.
+
+```
+docker run --rm -it aswinkarthik93/neovim-dotfiles bash
+nvim
+```
