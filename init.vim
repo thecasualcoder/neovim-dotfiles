@@ -615,6 +615,7 @@ augroup go
 
 augroup END
 
+set noshowmode
 
 " html
 " for html files, 2 spaces
