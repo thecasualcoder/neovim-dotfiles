@@ -57,6 +57,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'iCyMind/NeoSolarized'
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+
+set termguicolors     " enable true colors support
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
