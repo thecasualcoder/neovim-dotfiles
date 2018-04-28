@@ -85,6 +85,7 @@ Frequently used features,
 - Search with Ripgrep using `:Rgrep`
 - Use only `j`,`k`,`l`, and `h` for navigation. Navigation keys will not work. (Apologies for this)
 - Use `:BufOnly` to delete all buffers except the active one.
+- Distraction free mode using `:Goyo`
 
 ## Custom configurations
 
