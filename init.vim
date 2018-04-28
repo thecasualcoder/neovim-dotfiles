@@ -59,6 +59,7 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'junegunn/goyo.vim'
 
 set termguicolors     " enable true colors support
 
