@@ -734,7 +734,13 @@ augroup fmt
   autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+silent !npx --no-install prettier --version
+if v:shell_error
+  autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+else
+  autocmd FileType javascript setlocal formatprg=npx\ --no-install\ prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+endif
+
 let g:neoformat_try_formatprg = 1
 
 "*****************************************************************************
