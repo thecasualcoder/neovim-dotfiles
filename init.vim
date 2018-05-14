@@ -60,6 +60,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'junegunn/goyo.vim'
+Plug 'blueshirts/darcula'
+Plug 'crusoexia/vim-monokai'
 
 set termguicolors     " enable true colors support
 
