@@ -491,7 +491,11 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = '/bin/ls'
+let g:syntastic_javascript_eslint_exe='npx --no-install eslint'
+let g:syntastic_javascript_eslint_args='-f compact'
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -732,7 +736,13 @@ augroup fmt
   autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+silent !npx --no-install prettier --version
+if v:shell_error
+  autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+else
+  autocmd FileType javascript setlocal formatprg=npx\ --no-install\ prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+endif
+
 let g:neoformat_try_formatprg = 1
 
 "*****************************************************************************
