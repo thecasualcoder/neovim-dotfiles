@@ -62,6 +62,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'blueshirts/darcula'
 Plug 'crusoexia/vim-monokai'
+Plug 'w0ng/vim-hybrid'
 
 set termguicolors     " enable true colors support
 
