@@ -3,11 +3,22 @@ sudo: required
 language: bash
 
 services:
-  - docker
+- docker
+
+env:
+  global:
+  - secure: ClVbFkDt3UClf6bwOJ3ILxrOXM2PxdsyEc1wvLj5/e+84yoqb70ibucay6+TKdZkJ7o2mLUG/kwIB7NNeBXkRrbN2f9SojcvSs1e2fG/pRo7u/uYOP2vbKVfjuV2wGey9ZROePalZedUprBPhOTZjLodGu84dVUl2gsN0Dh28Sq2K6ViCKu9afYjTAx27+OtogJP3zGA2JsIH2muYuMBwzvyhk2dyMvVUX47IM85C7xM3l2eBGoauZL8aYurEobm4dzevmvkWfNTRDDFpVWMr/ah6cdnon+qqkSvRa1ovZQjfJLiGqF6KPyjGvlkQ/wUFUiGO2O9oL4vnVvqAJ0x92XqNNnrIv3soBKv+lFHDqz4UL42RxNjK5BT1e4KHI93ko6CPlO8S7ixReCUwRyUAj+1rJCjNmvfkdgRe+n5dox8o1vHNOksJ8hDN9QXzbvwgyIO15D5aPcYjyWZGAZV1E4xydVilYsTeWRxWzddJaMbhVkbq43Sxr8Ow7kr9NIPEJ63o8/qgX47uReNYZ8IDZZrzT+h9mr8xA5DggA8KHCS11UXvF02gq6NmqlQrZoquNPhU7mEHtfOzFwZUdSFlJ7E6Z5eWhnx8lugrrjRDJRR/t9a+jWCEIFxDTyW2fYL/qMo+vfs62zJ6QboX8zNG3I2k7eInHkVVPXv9BNua5g=
+  - secure: MT20NLhG6HdfgatQw7PbFneErtGo7a6Ge9Z8Wfb6CtWxvlZVKPkioHZo5rsC/groN9G7MDLf3wVGe2uxQi85SXfK6z1a5BDdQHufuIQTf5SVhsvDnN0yx7afM3PvbiQcYDE1mCJ6VT5dg4s9eeZAwr8B1DIJ4wYTs+v32YNZuSaxTL10kx7edYoPiuHcQskA+doY9PuMgHwDnvUcZHE16JwoKEzBdGnA6wMGJmd0lQ0m3B0UG3zgN5u3XU5v2PFcGDdmjtWBVtTNWmwGhOk8i/fOuL/Vn91UcU6YUFF7tAwp06sJNIxzLlecujuoJ+lERl5DyIpbrprBEMPeCuLI83s521C0gW6dJ/KdX4SOfLxB7pMSHBHIkEqFagqJFz5YKSzMBk8GsLTA6C4Z7EIl6ZlxbkYJfSLptV1tpomAcilB8xYAgXGuYBsi1v/TWv4Askv9ukztVBrNRxtSTe4/ZP5h9u/sZrhn8EbhjTRYe9eOwX1YqANG3KTLtx94ko+sBpXwnLCa8qV7zApS49c2tRxuA2291hrb/9O/kd1JXZ/PQfvLXSe/fnzRI6xY4O+A/cYBpaaqi3l8QUJQ+yloagGM76L5PDUysvD1qsD4BjHwvO3mMNGJAMcGbb2D5TyAMQQtlpylL5PHz1lxgmTvpoA694xOn9Nvn7GjoZ6R+HA=
+  - secure: YpOVa1U4ebgvVI5WI9iaqsbkSxgKXp7pPfihe2tURRJnsByTtFdRxiizRz51VAFCYOH+IQ8db+ypUtbBpb4x6aidLuaFL6QiAQpcgbMddZUkddaTY5pgdFDJ87eVe9GxOKkAr+SjU8Atxf1SoM3uaKdVamzqCLFdqCePDh32Gl5WnhM5KdtkltAWER0c8cv2qLhJDeohEjG8zN1+otQhJpQewhjKGnEnBCzIFnaswGR9WglG2qj0+IjuZ32GzNax2CxS3LksXvxQRBEEoXxVysKmyJl6KEgy3W00wjoH75/UNfoPVLVzpcmxD01idb8UIACEUdyPsXOwTDTkcg003lVSDTyT8hArp8K8IdzWO2GrgG9AsxZYQI2NU3betiwPQ0C5zrakDXQ6zRCWWSOuZdNabfShmaXSDWypl8SC0VSL6OoFP13oaSyGrH5NqpaQoHDL4FAa++eEFr/DftRkhTVnO/5u45nz3ApiUB24q48hiG+BaXBThFyx4LnaB8JKX14HgCeO+H62SJy/2Ud4CD2XffV8IxKzf7niKpWHXdrfxxAyzOVvtXl6BkV9H4taKZWhKK3Kn5nKf41TR7FlNHMTz7lZIRRqR6aAnGH12Uji7NYP7+HUziOhVokZYIVhzHSvyeN02CxlX4/It220BmHG51KXZKRjBAGnikLeyrk=
 
 after_success:
-  - export REPO=aswinkarthik/neovim-dotfiles
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build . -f Dockerfile -t "$REPO:$TRAVIS_COMMIT"
-  - docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG
-  - docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH;
+  else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+- export REPO=aswinkarthik93/neovim-dotfiles
+- export TAG=`if [ "$BRANCH" == "master" ]; then echo "latest"; else echo $BRANCH
+  ; fi`
+- docker build . -f Dockerfile -t "$REPO:$TRAVIS_COMMIT"
+- docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG
+- docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+- docker push $REPO
