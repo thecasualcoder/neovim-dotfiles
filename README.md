@@ -1,5 +1,5 @@
 # Neovim configs
-[![Build Status](https://img.shields.io/travis/aswinkarthik/neovim-dotfiles.svg?longCache=true&style=flat-square)](https://travis-ci.org/aswinkarthik/neovim-dotfiles)
+[![Build Status](https://img.shields.io/travis/aswinkarthik/neovim-dotfiles.svg?longCache=true&flat-square&logo=docker)](https://travis-ci.org/aswinkarthik/neovim-dotfiles)
 
 My neovim configurations
 
