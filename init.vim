@@ -1,4 +1,4 @@
-" vim-bootstrap 9c1c51e
+" vim-bootstrap b0a75e4
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -9,7 +9,7 @@ endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "c,go,html,javascript,python"
+let g:vim_bootstrap_langs = "c,go,html,javascript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -17,7 +17,10 @@ if !filereadable(vimplug_exists)
     echoerr "You have to install curl or first install vim-plug yourself!"
     execute "q!"
   endif
+  echo "Installing Vim-Plug..."
+  echo ""
   silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
 endif
@@ -44,28 +47,6 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/nerdcommenter'
-Plug 'jskswamy/youcompleteme'
-Plug 'sbdchd/neoformat'
-Plug 'flowtype/vim-flow'
-Plug 'ervandew/supertab'
-Plug 'schickling/vim-bufonly'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'iCyMind/NeoSolarized'
-Plug 'mhartington/oceanic-next'
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'junegunn/goyo.vim'
-Plug 'blueshirts/darcula'
-Plug 'crusoexia/vim-monokai'
-Plug 'w0ng/vim-hybrid'
-
-set termguicolors     " enable true colors support
-
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -95,26 +76,13 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
+Plug 'w0ng/vim-hybrid'
 
-" Multi Cursor
-Plug 'terryma/vim-multiple-cursors'
-
-" vial-http - REST tool
-Plug 'baverman/vial'
-Plug 'baverman/vial-http'
+set termguicolors
 
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
-
-" Plug 'deoplete'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-set completeopt+=noselect
-
-" Plug 'skwp/YankRing.vim'
-Plug 'tomasiser/vim-code-dark'
 
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
@@ -137,12 +105,6 @@ Plug 'mattn/emmet-vim'
 " javascript
 "" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
-
-
-" python
-"" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
 "*****************************************************************************
@@ -168,7 +130,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
-set autowrite
 
 
 "" Fix backspace indent
@@ -195,7 +156,6 @@ set smartcase
 "" Directories for swp files
 set nobackup
 set noswapfile
-set relativenumber
 
 set fileformats=unix,dos,mac
 
@@ -219,13 +179,14 @@ set ruler
 set number
 
 let no_buffers_menu=1
-
-silent! colorscheme NeoSolarized
-set background=dark
+if !exists('g:not_finish_vimplug')
+  colorscheme molokai
+endif
 
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
+set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -241,7 +202,10 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
+  
 endif
+
+
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -300,22 +264,9 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
-let g:NERDTreeWinSize = 30
-let NERDTreeShowHidden = 1
-let NERDTreeDirArrows = 1
-let NERDTreeMinimalUI = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
-
-function! OpenNerdTree()
-    if &modifiable && strlen(expand('%')) > 0 && !&diff
-        NERDTreeFind
-    else
-        NERDTreeToggle
-    endif
-endfunction
-nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -413,48 +364,10 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" windows
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
-
-"" vim-multipe-cursor
-nnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
-vnoremap <silent> mc :MultipleCursorsFind <C-R>/<CR>
-
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  call deoplete#disable()
-  call youcompleteme#DisableCursorMovedAutocommands()
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  call youcompleteme#EnableCursorMovedAutocommands()
-  call deoplete#enable()
-endfunction
-
-"" nerdcommenter
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-"" yankring
-" let g:yankring_history_file = '.yankring-history'
-" nnoremap ,yr :YRShow<CR>
-" nnoremap C-y :YRShow<CR>
-
 "" fzf.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "ls"
-"let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-nmap <leader>t :Files<CR>
-let g:fzf_layout = { 'down': '~25%' }
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 " The Silver Searcher
 if executable('ag')
@@ -470,18 +383,14 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <expr> <leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Buffers<CR>"
-nnoremap <silent> <expr> <leader>e (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF -m<CR>"
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>e :FZF -m<CR>
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
 let g:syntastic_always_populate_loc_list=1
@@ -491,12 +400,6 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_generic = 1
-let g:syntastic_javascript_eslint_exec = '/bin/ls'
-let g:syntastic_javascript_eslint_exe='npx --no-install eslint'
-let g:syntastic_javascript_eslint_args='-f compact'
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -509,9 +412,9 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-" if has('unnamedplus')
-"  set clipboard=unnamed,unnamedplus
-" endif
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -578,6 +481,7 @@ let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -591,8 +495,6 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
-let g:syntastic_aggregate_errors = 1
-let g:go_jump_to_error = 0
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
@@ -615,14 +517,12 @@ augroup go
   au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
   au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
-  au FileType go nmap <leader>r  <Plug>(go-test)
-  au FileType go nmap <leader>R  <Plug>(go-test-func)
-  au FileType go nmap <leader>rb  <Plug>(go-build)
-  au FileType go nmap <Leader>rc <Plug>(go-coverage-toggle)
+  au FileType go nmap <leader>r  <Plug>(go-run)
+  au FileType go nmap <leader>t  <Plug>(go-test)
+  au FileType go nmap <Leader>gt <Plug>(go-coverage-toggle)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
   au FileType go nmap <C-g> :GoDecls<cr>
-  au FileType go nmap <C-a> :GoAlternate<cr>
   au FileType go nmap <leader>dr :GoDeclsDir<cr>
   au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
   au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
@@ -630,7 +530,6 @@ augroup go
 
 augroup END
 
-set noshowmode
 
 " html
 " for html files, 2 spaces
@@ -643,43 +542,8 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
+  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
-
-if executable("jq")
-  command SortJson %!jq -S '.'
-endif
-
-" python
-" vim-python
-augroup vimrc-python
-  autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-      \ formatoptions+=croq softtabstop=4
-      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-augroup END
-
-" jedi-vim
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
-
-" syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
-
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-
-" Syntax highlight
-" Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
-let python_highlight_all = 1
 
 
 "*****************************************************************************
@@ -729,39 +593,6 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
-"*****************************************************************************
-"" Format on save using Neoformat
-"*****************************************************************************
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
-
-silent !npx --no-install prettier --version
-if v:shell_error
-  autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-else
-  autocmd FileType javascript setlocal formatprg=npx\ --no-install\ prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
-endif
-
-let g:neoformat_try_formatprg = 1
-
-"*****************************************************************************
-"" Configure Flow
-"*****************************************************************************
-let g:flow#enable = 1
-let g:flow#autoclose = 1
-
-
-"*****************************************************************************
-"" Break habit
-"*****************************************************************************
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
 
 "*****************************************************************************
 "" Respect custom configuration
