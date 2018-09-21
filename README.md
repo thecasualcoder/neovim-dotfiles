@@ -101,6 +101,17 @@ neovim is configured with neoformat plugin, to enable formatting for javascript:
 npm install -g prettier
 ```
 
+### Go
+
+#### Autocompletion
+
+For autocompletion [deoplete](https://github.com/Shougo/deoplete.nvim) asynchronous completion framework and [deoplete-go](https://github.com/zchee/deoplete-go) backed by [gocode](https://github.com/mdempsky/gocode) is used.
+
+To install gocode, execute
+
+```sh
+go get -u github.com/mdempsky/gocod
+```
 
 ### Javascript
 

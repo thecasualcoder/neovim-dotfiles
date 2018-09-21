@@ -87,7 +87,6 @@ set termguicolors
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
-
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
@@ -96,6 +95,9 @@ Plug 'ludwig/split-manpage.vim'
 " go
 "" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 
 " html
@@ -501,6 +503,7 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
+let g:deoplete#enable_at_startup = 1
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
