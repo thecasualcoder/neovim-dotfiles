@@ -111,6 +111,7 @@ Plug 'mattn/emmet-vim'
 " javascript
 "" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
+Plug 'w0rp/ale'
 
 
 "*****************************************************************************
@@ -551,9 +552,13 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
+" ale
+let b:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
 
 "*****************************************************************************
 "*****************************************************************************
