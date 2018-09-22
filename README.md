@@ -129,7 +129,7 @@ npm install -g flow-bin
 
 In case on opening neovim/vimr it shows error that python3 is unavailable.
 1. Check if python3 is installed if not brew/pip install it.
-   a. In case of brew link error : 
+   a. In case of brew link error :
     ```
     sudo mkdir usr/local/Frameworks
     sudo chown $(whoami):admin /usr/local/Frameworks
@@ -137,13 +137,9 @@ In case on opening neovim/vimr it shows error that python3 is unavailable.
     pip3 install --upgrade neovim
     ```
 
-2. If already installed and the error is ycmServer ShutDown and needs to compile then
-  ``` 
-  cd ~/.config/nvim/plugged/youcompleteme
-  ./install.py --clang-completer --go-completer --rust-completer --js-completer
-  ```
-  
-Reopen neovim/vimr and run ```:PlugUpdate```  
+### Updating
+
+Pull the latest changes from git and then reopen neovim/vimr and run `:PlugUpdate`
 
 ## Try it out with Docker
 
