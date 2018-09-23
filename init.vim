@@ -87,6 +87,9 @@ set termguicolors
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
+" Supertab
+Plug 'ervandew/supertab'
+
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
