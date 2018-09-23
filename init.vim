@@ -141,6 +141,8 @@ set fileencodings=utf-8
 set bomb
 set binary
 
+"" Line number
+set relativenumber
 
 "" Fix backspace indent
 set backspace=indent,eol,start
