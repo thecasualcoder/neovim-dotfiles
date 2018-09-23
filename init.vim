@@ -90,6 +90,9 @@ Plug 'scrooloose/nerdtree'
 " Supertab
 Plug 'ervandew/supertab'
 
+" Close other buffers
+Plug 'schickling/vim-bufonly'
+
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
