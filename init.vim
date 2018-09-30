@@ -77,6 +77,7 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
+Plug 'rainglow/vim'
 
 set termguicolors
 
@@ -204,7 +205,7 @@ set guioptions=egmrti
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
+    set guifont=Fira\ Code:h12
     set transparency=7
   endif
 else
@@ -217,6 +218,8 @@ else
   let g:indentLine_faster = 1
 endif
 
+set linespace=3
+set cursorline
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
