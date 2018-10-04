@@ -121,6 +121,14 @@ go get -u github.com/mdempsky/gocod
 npm install -g flow-bin
 ```
 
+### Shell/Bash Script
+
+To support format shell script
+
+```sh
+brew install shfmt
+```
+
 ### Jq support
 
 1. Install [`jq`](https://github.com/stedolan/jq) to use `:SortJson` (sorts all keys of a JSON file).

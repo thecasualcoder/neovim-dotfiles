@@ -567,12 +567,17 @@ augroup vimrc-javascript
   autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
+
+" sh
+autocmd FileType sh set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
+
 " ale
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {
       \ 'markdown': ['prettier'],
       \ 'json': ['jq'],
-      \ 'javascript': ['prettier']
+      \ 'javascript': ['prettier'],
+      \ 'sh': ['shfmt']
       \ }
 let g:ale_linters = {
       \ 'markdown': ['prettier'],
