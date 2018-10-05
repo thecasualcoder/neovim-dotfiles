@@ -129,6 +129,16 @@ To support format shell script
 brew install shfmt
 ```
 
+### Yaml
+
+To lint yaml files, install
+
+```sh
+brew install yamllint
+```
+
+> For more info on yaml liniting visit [here](https://github.com/adrienverge/yamllint)
+
 ### Jq support
 
 1. Install [`jq`](https://github.com/stedolan/jq) to use `:SortJson` (sorts all keys of a JSON file).

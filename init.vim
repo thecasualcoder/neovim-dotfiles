@@ -576,16 +576,22 @@ augroup END
 " sh
 autocmd FileType sh set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 
+" yaml
+autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " ale
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {
       \ 'markdown': ['prettier'],
       \ 'json': ['jq'],
       \ 'javascript': ['prettier'],
+      \ 'yaml': ['trim_whitespace'],
       \ 'sh': ['shfmt']
       \ }
 let g:ale_linters = {
       \ 'markdown': ['prettier'],
+      \ 'yaml': ['yamllint'],
       \ 'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
       \ }
 let g:ale_fix_on_save = 1
