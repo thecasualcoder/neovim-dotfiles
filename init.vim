@@ -81,6 +81,7 @@ Plug 'rainglow/vim'
 Plug 'AlessandroYorba/Alduin'
 Plug 'romainl/flattened'
 Plug 'xolox/vim-colorscheme-switcher'
+Plug 'nightsense/night-and-day'
 
 set termguicolors
 
@@ -237,6 +238,13 @@ set titleold="Terminal"
 set titlestring=%F
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+" Time based themes
+let g:nd_themes = [
+  \ ['07:00', 'hybrid', 'light', 'hybrid' ],
+  \ ['08:00', 'hybrid', 'dark' , 'hybrid' ],
+  \ ]
+let g:nd_airline = 1
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
