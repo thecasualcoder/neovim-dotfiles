@@ -78,6 +78,9 @@ Plug 'honza/vim-snippets'
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
 Plug 'rainglow/vim'
+Plug 'AlessandroYorba/Alduin'
+Plug 'romainl/flattened'
+Plug 'xolox/vim-colorscheme-switcher'
 
 set termguicolors
 
@@ -195,9 +198,6 @@ set ruler
 set number
 
 let no_buffers_menu=1
-if !exists('g:not_finish_vimplug')
-  colorscheme molokai
-endif
 
 set mousemodel=popup
 set t_Co=256
