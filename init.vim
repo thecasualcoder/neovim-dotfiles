@@ -125,6 +125,10 @@ Plug 'mattn/emmet-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'w0rp/ale'
 
+" rust
+" Rust Lang Bundle
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -615,6 +619,15 @@ let g:ale_lint_on_text_changed = 'normal' " Slows down things if it's always lin
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '%linter%: %s [%severity%]'
+
+" rust
+" Vim racer
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+let g:rustfmt_autosave = 1
 
 "*****************************************************************************
 "*****************************************************************************
