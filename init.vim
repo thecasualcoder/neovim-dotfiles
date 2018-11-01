@@ -82,6 +82,7 @@ Plug 'AlessandroYorba/Alduin'
 Plug 'romainl/flattened'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/night-and-day'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 set termguicolors
 
@@ -241,7 +242,7 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " Time based themes
 let g:nd_themes = [
-  \ ['07:00', 'hybrid', 'light', 'hybrid' ],
+  \ ['07:00', 'hybrid', 'dark', 'hybrid' ],
   \ ['08:00', 'hybrid', 'dark' , 'hybrid' ],
   \ ]
 let g:nd_airline = 1
