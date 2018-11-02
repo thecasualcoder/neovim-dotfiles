@@ -55,7 +55,7 @@ The above `Vimr` is customized. It has,
 Frequently used keymaps,
 
 | Name               | Value                          |
-|:-------------------|:-------------------------------|
+| :----------------- | :----------------------------- |
 | \<leader\>         | ,                              |
 | , + e              | Files fuzzy finder             |
 | , + b              | Buffer fuzzy finder            |
@@ -70,7 +70,7 @@ Frequently used keymaps,
 **Golang specific Keymaps**
 
 | Name              | Value                               |
-|:------------------|:------------------------------------|
+| :---------------- | :---------------------------------- |
 | , + r             | Run all tests                       |
 | , + \<shift\> + r | Run specific test                   |
 | \<ctrl\> + a      | Switch between test and source code |
@@ -113,6 +113,13 @@ To install gocode, execute
 go get -u github.com/mdempsky/gocod
 ```
 
+### Rust
+
+### Autocompletion
+
+For autocompletion [racer](https://github.com/racer-rust/racer) is used, to correctly configure it follow the instruction on how to install racer from [here](https://github.com/racer-rust/racer#installation)
+Configure your bash/zsh profile with `export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"`
+
 ### Javascript
 
 1. To enable flow run:
@@ -146,14 +153,15 @@ brew install yamllint
 ### Python Installation and Linking
 
 In case on opening neovim/vimr it shows error that python3 is unavailable.
+
 1. Check if python3 is installed if not brew/pip install it.
    a. In case of brew link error :
-    ```
-    sudo mkdir usr/local/Frameworks
-    sudo chown $(whoami):admin /usr/local/Frameworks
-    brew install python3
-    pip3 install --upgrade neovim
-    ```
+   ```
+   sudo mkdir usr/local/Frameworks
+   sudo chown $(whoami):admin /usr/local/Frameworks
+   brew install python3
+   pip3 install --upgrade neovim
+   ```
 
 ### Updating
 
