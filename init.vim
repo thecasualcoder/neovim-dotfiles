@@ -83,6 +83,7 @@ Plug 'romainl/flattened'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/night-and-day'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'morhetz/gruvbox'
 
 set termguicolors
 
