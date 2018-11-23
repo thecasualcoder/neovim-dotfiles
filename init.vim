@@ -434,8 +434,8 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
+nnoremap <silent> <expr> <leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Buffers<CR>"
+nnoremap <silent> <expr> <leader>e (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF -m<CR>"
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
