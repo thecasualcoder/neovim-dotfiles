@@ -301,10 +301,20 @@ let NERDTreeShowHidden=1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" Toggle/Find in NERDTree
+function! OpenNerdTree()
+    if &modifiable && strlen(expand('%')) > 0 && !&diff
+        NERDTreeFind
+    else
+        NERDTreeToggle
+    endif
+endfunction
+nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-map <C-\> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Buffers<CR>"
 nnoremap <silent> <expr> <leader>e (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF -m<CR>"
 
