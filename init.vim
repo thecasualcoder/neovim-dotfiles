@@ -85,6 +85,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/night-and-day'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 
 set termguicolors
 
@@ -695,6 +696,9 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " light|mirage|dark
 
 "*****************************************************************************
 "" Respect custom configuration
